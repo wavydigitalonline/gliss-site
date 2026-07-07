@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Gliss — Websites. Marketing. AI.</title>
+<meta name="description" content="Gliss is a South African studio built on precision, simplicity and technology — helping businesses grow without complexity." />
+<meta name="theme-color" content="#0a0a0f" />
+<link rel="icon" href="images/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[#0a0a0f] text-white antialiased">
+
+<header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-extrabold text-lg tracking-tight">
+      <img src="images/logo.png" alt="Gliss logo" class="h-8 w-8 object-contain" data-fallback>
+      <div class="img-fallback h-8 w-8 rounded" style="display:none">G</div>
+      GLISS
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-white/60">
+      <a data-nav-link href="index.html" class="hover:text-white transition-colors">Home</a>
+      <a data-nav-link href="services.html" class="hover:text-white transition-colors">Services</a>
+      <a data-nav-link href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
+      <a data-nav-link href="about.html" class="hover:text-white transition-colors">About</a>
+      <a data-nav-link href="contact.html" class="hover:text-white transition-colors">Contact</a>
+    </nav>
+    <a href="https://wa.me/27714636308?text=Hi%20Gliss!%20I'd%20like%20to%20book%20a%20free%20consultation."
+       target="_blank" rel="noopener" class="hidden md:inline-flex btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">
+      Book a Free Consultation
+    </a>
+    <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" class="md:hidden text-white">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden border-t border-white/10">
+    <div class="flex flex-col px-5 py-4 gap-4 text-sm text-white/70">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/27714636308?text=Hi%20Gliss!%20I'd%20like%20to%20book%20a%20free%20consultation."
+         target="_blank" rel="noopener" class="btn-primary rounded-full px-5 py-3 text-center font-semibold text-black">
+        Book a Free Consultation
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-20">
+
+  <section class="relative overflow-hidden">
+    <div class="glow-bg"></div>
+    <div class="relative max-w-3xl mx-auto px-5 md:px-8 pt-20 pb-16 text-center">
+      <span class="pill-badge inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs text-white/70 mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-white/70"></span> About
+      </span>
+      <h1 class="chrome-text text-4xl md:text-5xl font-extrabold leading-tight mb-6">Precision as a discipline.</h1>
+      <p class="text-white/60">Gliss is a studio built for businesses that value quality and speed in equal measure. We combine premium design, disciplined marketing and modern AI to help brands operate with clarity and grow with confidence.</p>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-5 md:px-8 pb-10 md:pb-20 text-white/70 text-sm md:text-base space-y-5">
+    <p>Every project we ship — from a one-page website to a fully automated customer journey — starts with the same question: <em>where is the friction?</em> Then we remove it.</p>
+    <p>We keep our team small on purpose. It means the person designing your website is the same person tuning your ads and the same person deploying your AI. No hand-offs. No layers. Just measurable progress.</p>
+    <p>The result is work that feels effortless — because behind the scenes, every detail is engineered to be inevitable.</p>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-20">
+    <div class="card rounded-3xl overflow-hidden grid md:grid-cols-2 items-stretch">
+      <div class="relative min-h-[260px] md:min-h-full order-2 md:order-1">
+        <img src="images/why-gliss.jpg" alt="Abstract geometric chrome architecture representing precision and modern technology" data-fallback class="absolute inset-0 w-full h-full object-cover">
+        <div class="img-fallback absolute inset-0" style="display:none">why-gliss.jpg not found — see image guide</div>
+      </div>
+      <div class="p-8 md:p-12 order-1 md:order-2">
+        <p class="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">Why Gliss</p>
+        <h2 class="chrome-text text-2xl md:text-3xl font-extrabold mb-8">Every detail, intentional.</h2>
+        <div class="grid grid-cols-2 gap-6">
+          <div><h4 class="font-semibold mb-1">Smooth Process</h4><p class="text-white/55 text-sm">Everything is designed to remove friction.</p></div>
+          <div><h4 class="font-semibold mb-1">Modern Technology</h4><p class="text-white/55 text-sm">Built with modern tools and AI.</p></div>
+          <div><h4 class="font-semibold mb-1">Reliable Support</h4><p class="text-white/55 text-sm">Fast responses and ongoing assistance.</p></div>
+          <div><h4 class="font-semibold mb-1">Designed to Grow</h4><p class="text-white/55 text-sm">Solutions that scale with your business.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-20">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="relative rounded-3xl overflow-hidden aspect-[4/5] card">
+        <img src="images/founder.jpg" alt="Kevin, founder of Gliss" data-fallback class="absolute inset-0 w-full h-full object-cover">
+        <div class="img-fallback absolute inset-0" style="display:none">founder.jpg not found — see image guide</div>
+        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 to-transparent">
+          <p class="text-xs text-white/50">Founder</p>
+          <p class="font-bold">Kevin — Gliss</p>
+        </div>
+      </div>
+      <div>
+        <p class="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">Meet the Founder</p>
+        <h2 class="chrome-text text-2xl md:text-3xl font-extrabold mb-6">Built from the ground up.</h2>
+        <p class="text-white/70 text-sm md:text-base mb-4">I'm Kevin, the founder of Gliss.</p>
+        <p class="text-white/60 text-sm md:text-base mb-4">I didn't start this agency with funding, an office, or expensive equipment. I started it on a Xiaomi Redmi phone while working 10-hour shifts, building websites during breaks and late into the night.</p>
+        <p class="text-white/60 text-sm md:text-base mb-4">That experience taught me something most agencies never have to learn: every click matters, every enquiry matters, and every rand a business invests should create measurable value.</p>
+        <p class="text-white/60 text-sm md:text-base mb-4">Gliss was built on one belief: growing a business shouldn't feel complicated. The best digital experiences are smooth, effortless, and almost invisible. When everything works as it should, your customers don't notice the technology—they simply take the next step.</p>
+        <p class="text-white/60 text-sm md:text-base mb-6">Today, that same mindset shapes every project we deliver — thoughtful design, practical solutions, and technology that helps businesses grow with confidence.</p>
+        <p class="text-white/40 text-xs uppercase tracking-[0.2em]">Smooth · Precise · Intentional</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 md:px-8 py-10 md:py-20 text-center">
+    <p class="text-white/40 text-xs uppercase tracking-[0.2em] mb-6">Testimonials</p>
+    <blockquote class="chrome-text text-xl md:text-2xl font-semibold leading-relaxed mb-6">
+      "Gliss rebuilt our online presence in under a week. The site is faster, cleaner and it's already bringing in enquiries every day."
+    </blockquote>
+    <p class="text-white font-semibold">Nadia M.</p>
+    <p class="text-white/50 text-sm">Founder, Studio Nine</p>
+  </section>
+
+  <section id="contact" class="max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-20">
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <p class="text-white/40 text-xs uppercase tracking-[0.2em] mb-3">Contact</p>
+        <h2 class="chrome-text text-2xl md:text-3xl font-extrabold mb-4">Let's build something exceptional.</h2>
+        <p class="text-white/60 text-sm md:text-base mb-10">Tell us about your business and what you'd like to move forward. We'll reply within one business day with a clear next step.</p>
+        <div class="space-y-6">
+          <div><p class="text-white/40 text-xs mb-1">Email</p><a href="mailto:gliss.studio@gmail.com" class="font-semibold hover:text-white/80">gliss.studio@gmail.com</a></div>
+          <div><p class="text-white/40 text-xs mb-1">Phone / WhatsApp</p><a href="tel:+27714636308" class="font-semibold hover:text-white/80">071 463 6308</a></div>
+          <div><p class="text-white/40 text-xs mb-1">Location</p><p class="font-semibold">South Africa · Serving clients nationwide &amp; internationally</p></div>
+        </div>
+      </div>
+      <form id="contact-form" class="card rounded-2xl p-6 md:p-8 space-y-5">
+        <div>
+          <label for="cf-name" class="block text-xs text-white/50 mb-2">Name</label>
+          <input id="cf-name" name="name" type="text" required class="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none" placeholder="Your name">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="cf-email" class="block text-xs text-white/50 mb-2">Email</label>
+            <input id="cf-email" name="email" type="email" class="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none" placeholder="you@email.com">
+          </div>
+          <div>
+            <label for="cf-phone" class="block text-xs text-white/50 mb-2">Phone</label>
+            <input id="cf-phone" name="phone" type="tel" class="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none" placeholder="071 000 0000">
+          </div>
+        </div>
+        <div>
+          <p class="block text-xs text-white/50 mb-2">I'm interested in</p>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="service-pill"><input type="radio" name="service" value="Website Design" checked><span>Website Design</span></label>
+            <label class="service-pill"><input type="radio" name="service" value="Website Care"><span>Website Care</span></label>
+            <label class="service-pill"><input type="radio" name="service" value="Digital Marketing"><span>Digital Marketing</span></label>
+            <label class="service-pill"><input type="radio" name="service" value="AI Automation"><span>AI Automation</span></label>
+            <label class="service-pill col-span-2"><input type="radio" name="service" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </div>
+        <div>
+          <label for="cf-message" class="block text-xs text-white/50 mb-2">Message</label>
+          <textarea id="cf-message" name="message" rows="3" class="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none" placeholder="Tell us a bit about your business..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary rounded-full px-6 py-3.5 font-semibold w-full">Book Consultation</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-white/10 mt-10">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div>
+      <a href="index.html" class="flex items-center gap-2 font-extrabold text-lg mb-4">
+        <img src="images/logo.png" alt="Gliss logo" class="h-7 w-7 object-contain" data-fallback>
+        <div class="img-fallback h-7 w-7 rounded" style="display:none">G</div>
+        GLISS
+      </a>
+      <p class="text-white/50 text-sm mb-1">Websites. Marketing. AI. — helping South African businesses grow through precise design, smart marketing and AI automation.</p>
+      <p class="text-white/30 text-xs mt-3">Smooth. Effortless. Inevitable.</p>
+    </div>
+    <div>
+      <h4 class="text-xs uppercase tracking-[0.2em] text-white/40 mb-4">Navigation</h4>
+      <ul class="space-y-2 text-sm text-white/60">
+        <li><a href="index.html" class="hover:text-white">Home</a></li>
+        <li><a href="services.html" class="hover:text-white">Services</a></li>
+        <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+        <li><a href="about.html" class="hover:text-white">About</a></li>
+        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs uppercase tracking-[0.2em] text-white/40 mb-4">Contact</h4>
+      <ul class="space-y-2 text-sm text-white/60">
+        <li><a href="mailto:gliss.studio@gmail.com" class="hover:text-white">gliss.studio@gmail.com</a></li>
+        <li><a href="tel:+27714636308" class="hover:text-white">071 463 6308</a></li>
+        <li>South Africa</li>
+        <li>Mon–Fri · 09:00 – 17:00</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs uppercase tracking-[0.2em] text-white/40 mb-4">Get in touch</h4>
+      <a href="https://wa.me/27714636308?text=Hi%20Gliss!%20I'd%20like%20to%20book%20a%20free%20consultation."
+         target="_blank" rel="noopener" class="btn-outline inline-flex rounded-full px-5 py-2.5 text-sm font-semibold">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-6 text-center text-xs text-white/30">
+    © <span id="current-year"></span> Gliss. All rights reserved. · Designed by Gliss
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
