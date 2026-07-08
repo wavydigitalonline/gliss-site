@@ -26,4 +26,32 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.style.display = isHidden ? 'block' : 'none';
         });
     }
+    // Contact form -> pre-filled email
+    const contactForm = document.querySelector('#contact form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputs = contactForm.querySelectorAll('input');
+            const name = inputs[0]?.value || '';
+            const email = inputs[1]?.value || '';
+            const business = inputs[2]?.value || '';
+            const phone = inputs[3]?.value || '';
+            const service = contactForm.querySelector('select')?.value || '';
+            const message = contactForm.querySelector('textarea')?.value || '';
+
+            const subject = 'Consultation request from ' + (name || 'website visitor');
+            const body =
+                'Name: ' + (name || '-') +
+                '\nEmail: ' + (email || '-') +
+                '\nBusiness: ' + (business || '-') +
+                '\nPhone: ' + (phone || '-') +
+                '\nService: ' + (service || '-') +
+                '\nMessage: ' + (message || '-');
+
+            window.location.href =
+                'mailto:gliss.studio@gmail.com' +
+                '?subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+        });
+        }
 });
