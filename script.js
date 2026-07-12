@@ -162,9 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!testimonials.length) return;
 
     const dots = Array.from(dotsEl.querySelectorAll('button'));
-    const quoteEl = contentEl.querySelector('p');
-    const nameEl = contentEl.querySelector('.mt-8 p:first-child');
-    const roleEl = contentEl.querySelector('.mt-8 p:last-child');
+    const quoteEl = contentEl.querySelector(':scope > p');
+    const authorWrap = contentEl.querySelector(':scope > div');
+    const nameEl = authorWrap ? authorWrap.children[0] : null;
+    const roleEl = authorWrap ? authorWrap.children[1] : null;
 
     let current = 0;
     let timer = null;
