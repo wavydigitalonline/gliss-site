@@ -59,26 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== added kinetic animations (non-destructive: only runs if these elements exist) =====
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Hero headline: split into words, each flies in from a random 3D position and assembles into place
-    const heroTitle = document.getElementById('hero-title');
-    if (heroTitle) {
-        const lineSpans = Array.from(heroTitle.children).filter(el => el.tagName === 'SPAN');
-        let i = 0;
-        lineSpans.forEach(line => {
-            const words = line.textContent.split(' ').filter(Boolean);
-            line.textContent = '';
-            words.forEach((w, idx) => {
-                const kw = document.createElement('span');
-                kw.className = 'kw';
-                kw.textContent = w + (idx < words.length - 1 ? '\u00A0' : '');
-                const ty = (Math.random() * -24 - 10).toFixed(0) + 'px';
-                kw.style.setProperty('--ty', ty);
-                kw.style.setProperty('--d', (0.55 + i * 0.045) + 's'); // starts after existing reveal-up begins
-                i++;
-                line.appendChild(kw);
-            });
-        });
-    }
+    // Hero headline entrance is handled purely by CSS on #hero-title > span (no text-node mutation, no JS needed here)
 
     // Service number badges (01, 02, 03, 04): flip each digit in like an odometer
     const servicesGrid = document.getElementById('services-grid');

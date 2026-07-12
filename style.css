@@ -72,11 +72,14 @@ position: relative;
 z-index: 1;
 }
 
-/* ===== added kinetic animations (word-assemble hero, card hinge-flip, digit-flip) ===== */
-#hero-title .kw{display:inline-block;opacity:0;
-  animation:kw-assemble .6s ease-out forwards;animation-delay:var(--d,0s)}
-@keyframes kw-assemble{
-  0%{opacity:0;transform:translateY(var(--ty,-22px))}
+/* ===== added kinetic animations (hero line-in, card hinge-flip, digit-flip) ===== */
+#hero-title > span{display:inline-block;opacity:0;
+  animation:kw-line-in .7s ease-out forwards}
+#hero-title > span:nth-of-type(1){animation-delay:.5s}
+#hero-title > span:nth-of-type(2){animation-delay:.62s}
+#hero-title > span:nth-of-type(3){animation-delay:.74s}
+@keyframes kw-line-in{
+  0%{opacity:0;transform:translateY(-14px)}
   100%{opacity:1;transform:translateY(0)}
 }
 
@@ -92,7 +95,7 @@ z-index: 1;
 @keyframes kw-flipdigit{0%{transform:rotateX(90deg);opacity:0}100%{transform:rotateX(0);opacity:1}}
 
 @media (prefers-reduced-motion: reduce){
-  #hero-title .kw{animation:none !important;opacity:1 !important;transform:none !important}
+  #hero-title > span{animation:none !important;opacity:1 !important;transform:none !important}
   #services-grid article{animation:none !important;opacity:1 !important;transform:none !important;transition:none !important}
   .kw-odo b{animation:none !important;opacity:1 !important;transform:none !important}
 }
