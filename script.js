@@ -149,3 +149,88 @@ document.addEventListener('DOMContentLoaded', () => {
         revealEls.forEach(el => revealIO.observe(el));
     }
 });
+
+// Testimonials: auto-slide to the next quote, syncs with the existing dot indicators
+document.addEventListener('DOMContentLoaded', () => {
+    const dataEl = document.getElementById('testimonial-data');
+    const contentEl = document.getElementById('testimonial-content');
+    const dotsEl = document.getElementById('testimonial-dots');
+    if (!dataEl || !contentEl || !dotsEl) return;
+
+    let testimonials = [];
+    try { testimonials = JSON.parse(dataEl.textContent); } catch (e) { return; }
+    if (!testimonials.length) return;
+
+    const dots = Array.from(dotsEl.querySelectorAll('button'));
+    const quoteEl = contentEl.querySelector('p');
+    const nameEl = contentEl.querySelector('.mt-8 p:first-child');
+    const roleEl = contentEl.querySelector('.mt-8 p:last-child');
+
+    let current = 0;
+    let timer = null;
+    const AUTO_MS = 6000;
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function setDots(idx) {
+        dots.forEach((d, i) => {
+            if (i === idx) {
+                d.className = 'h-1.5 rounded-full transition-all w-8 bg-silver';
+            } else {
+                d.className = 'h-1.5 rounded-full transition-all w-1.5 bg-white/20 hover:bg-white/40';
+            }
+        });
+    }
+
+    function render(idx) {
+        const t = testimonials[idx];
+        if (quoteEl) quoteEl.textContent = '"' + t.quote + '"';
+        if (nameEl) nameEl.textContent = t.name;
+        if (roleEl) roleEl.textContent = t.role;
+        setDots(idx);
+    }
+
+    function goTo(idx) {
+        idx = ((idx % testimonials.length) + testimonials.length) % testimonials.length;
+        if (idx === current) return;
+        current = idx;
+        if (reduceMotion) {
+            render(current);
+            return;
+        }
+        contentEl.classList.add('kw-out');
+        setTimeout(() => {
+            render(current);
+            contentEl.classList.remove('kw-out');
+            contentEl.classList.add('kw-in-swap');
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                contentEl.classList.remove('kw-in-swap');
+            }));
+        }, 350);
+    }
+
+    function next() { goTo(current + 1); }
+
+    function startAuto() {
+        stopAuto();
+        timer = setInterval(next, AUTO_MS);
+    }
+    function stopAuto() {
+        if (timer) clearInterval(timer);
+        timer = null;
+    }
+
+    dots.forEach((d, i) => {
+        d.addEventListener('click', () => { goTo(i); startAuto(); });
+    });
+
+    const card = contentEl.closest('.glass-strong') || contentEl.parentElement;
+    if (card) {
+        card.addEventListener('mouseenter', stopAuto);
+        card.addEventListener('mouseleave', startAuto);
+        card.addEventListener('focusin', stopAuto);
+        card.addEventListener('focusout', startAuto);
+    }
+
+    setDots(current);
+    if (!reduceMotion) startAuto();
+});
