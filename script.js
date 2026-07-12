@@ -71,12 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const kw = document.createElement('span');
                 kw.className = 'kw';
                 kw.textContent = w + (idx < words.length - 1 ? '\u00A0' : '');
-                const tx = (Math.random() * 60 - 30).toFixed(0) + 'px';
-                const ty = (Math.random() * -36 - 14).toFixed(0) + 'px';
-                const rz = (Math.random() * 10 - 5).toFixed(0) + 'deg';
-                kw.style.setProperty('--tx', tx);
+                const ty = (Math.random() * -24 - 10).toFixed(0) + 'px';
                 kw.style.setProperty('--ty', ty);
-                kw.style.setProperty('--rz', rz);
                 kw.style.setProperty('--d', (0.55 + i * 0.045) + 's'); // starts after existing reveal-up begins
                 i++;
                 line.appendChild(kw);
