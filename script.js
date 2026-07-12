@@ -71,17 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const kw = document.createElement('span');
                 kw.className = 'kw';
                 kw.textContent = w + (idx < words.length - 1 ? '\u00A0' : '');
-                const tx = (Math.random() * 240 - 120).toFixed(0) + 'px';
-                const ty = (Math.random() * -50 - 15).toFixed(0) + 'px';
-                const tz = (-90 - Math.random() * 160).toFixed(0) + 'px';
-                const rx = (Math.random() * 60 + 15).toFixed(0) + 'deg';
-                const ry = (Math.random() * 70 - 35).toFixed(0) + 'deg';
-                const rz = (Math.random() * 14 - 7).toFixed(0) + 'deg';
+                const tx = (Math.random() * 60 - 30).toFixed(0) + 'px';
+                const ty = (Math.random() * -36 - 14).toFixed(0) + 'px';
+                const rz = (Math.random() * 10 - 5).toFixed(0) + 'deg';
                 kw.style.setProperty('--tx', tx);
                 kw.style.setProperty('--ty', ty);
-                kw.style.setProperty('--tz', tz);
-                kw.style.setProperty('--rx', rx);
-                kw.style.setProperty('--ry', ry);
                 kw.style.setProperty('--rz', rz);
                 kw.style.setProperty('--d', (0.55 + i * 0.045) + 's'); // starts after existing reveal-up begins
                 i++;
