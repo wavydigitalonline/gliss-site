@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '\nMessage: ' + (message || '-');
 
             window.location.href =
-                'mailto:gliss.studio@gmail.com' +
+                'mailto:gliss.admin@gmail.com' +
                 '?subject=' + encodeURIComponent(subject) +
                 '&body=' + encodeURIComponent(body);
         });
