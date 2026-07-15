@@ -53,13 +53,13 @@ button { font-family: inherit; }
 .nav-cta { display: none; font-family: var(--ff-l); font-size: .75rem; text-transform: uppercase; letter-spacing: .2em; color: var(--fg-40); transition: color .3s; }
 .nav-cta:hover { color: var(--fg); }
 @media(min-width:768px) { .nav-cta { display: inline; } }
-.nav-toggle { display: flex; background: none; border: none; color: var(--fg); cursor: pointer; padding: 0; pointer-events: auto; z-index: 51; }
+.nav-toggle { display: flex; background: none; border: none; color: var(--fg); cursor: pointer; padding: 8px; pointer-events: auto; z-index: 51; align-items: center; justify-content: center; }
 @media(min-width:768px) { .nav-toggle { display: none; } }
 
 /* ===== MOBILE MENU ===== */
 .mobile-menu { position: fixed; inset: 0; z-index: 60; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity .4s; }
 .mobile-menu.open { opacity: 1; pointer-events: auto; }
-.mobile-menu-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--fg); cursor: pointer; }
+.mobile-menu-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--fg); cursor: pointer; padding: 8px; pointer-events: auto; display: flex; align-items: center; justify-content: center; }
 .mobile-menu-link { font-family: var(--ff-h); font-size: 2.5rem; font-weight: 400; color: var(--fg-80); transition: color .3s; opacity: 0; transform: translateY(20px); }
 .mobile-menu.open .mobile-menu-link { opacity: 1; transform: none; transition: opacity .4s, transform .4s, color .3s; }
 .mobile-menu.open .mobile-menu-link:nth-child(2) { transition-delay: .08s; }
@@ -126,7 +126,10 @@ button { font-family: inherit; }
 .ov-contact { background: rgba(5,5,7,.6); }
 
 /* ===== HEADINGS ===== */
-.h1, .h2, .h3 { font-family: var(--ff-h); font-weight: 400; letter-spacing: -.02em; color: var(--fg); }
+.h1, .h2, .h3 { font-family: var(--ff-h); font-weight: 400; letter-spacing: -.02em; color: var(--fg); animation: eUpLg 1.2s var(--ease) both; }
+.home-ct .h2 { animation-delay: .2s; }
+.home-ct .body-lg { opacity: 0; animation: eUp 1s var(--ease) both; animation-delay: .4s; }
+.home-ct .elabel { opacity: 0; animation: eUp 1s var(--ease) both; animation-delay: 0s; }
 
 /* Size variants */
 .sz-s1 { font-size: 3rem; line-height: 1.05; }
