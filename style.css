@@ -217,35 +217,50 @@ button { font-family: inherit; }
 .link-arrow svg { transition: transform .15s; }
 .link-arrow:hover svg { transform: translate(2px,-2px); }
 
-/* ---------- Scroll Reveal ---------- */
+/* =========================
+   SCROLL REVEAL
+========================= */
 
 .reveal,
 .reveal-x,
 .reveal-xr{
+
     opacity:0;
-    will-change:opacity,transform;
+
+    will-change:transform, opacity;
+
     transition:
-        opacity .9s cubic-bezier(.22,1,.36,1),
-        transform .9s cubic-bezier(.22,1,.36,1);
+        opacity 1.4s var(--ease),
+        transform 1.4s var(--ease);
+
 }
 
 .reveal{
-    transform:translateY(40px);
+
+    transform:translate3d(0,28px,0);
+
 }
 
 .reveal-x{
-    transform:translateX(-50px);
+
+    transform:translate3d(-32px,0,0);
+
 }
 
 .reveal-xr{
-    transform:translateX(50px);
+
+    transform:translate3d(32px,0,0);
+
 }
 
 .reveal.in,
 .reveal-x.in,
 .reveal-xr.in{
+
     opacity:1;
+
     transform:translate3d(0,0,0);
+
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -253,9 +268,11 @@ button { font-family: inherit; }
     .reveal,
     .reveal-x,
     .reveal-xr{
+
         opacity:1;
         transform:none;
         transition:none;
+
     }
 
 }
