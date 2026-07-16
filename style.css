@@ -38,8 +38,8 @@ button { font-family: inherit; }
 .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
 
 /* ===== NAVBAR ===== */
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(5,5,7,0.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background .7s, border-color .7s; animation: navIn .8s var(--ease) both; }
-.navbar.scrolled { background: rgba(5,5,7,0.7); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.04); }
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: transparent; transition: background .7s, border-color .7s; animation: navIn .8s var(--ease) both; }
+.navbar.scrolled { background: transparent; border-bottom: 1px solid rgba(255,255,255,0.04); }
 @keyframes navIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 .nav-inner { max-width: 80rem; margin: 0 auto; padding: 0 1.5rem; height: 5rem; display: flex; align-items: center; justify-content: space-between; pointer-events: auto; }
 @media(min-width:1024px) { .nav-inner { padding: 0 2.5rem; } }
@@ -215,12 +215,14 @@ button { font-family: inherit; }
 .link-arrow:hover svg { transform: translate(2px,-2px); }
 
 /* ===== REVEAL ===== */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
-.reveal.in { opacity: 1; transform: none; }
-.reveal-x { opacity: 0; transform: translateX(-32px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
-.reveal-x.in { opacity: 1; transform: none; }
-.reveal-xr { opacity: 0; transform: translateX(32px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
-.reveal-xr.in { opacity: 1; transform: none; }
+.reveal { opacity: 0; }
+.reveal.in { animation: eUp 1s var(--ease) both; }
+.reveal-x { opacity: 0; }
+.reveal-x.in { animation: eLeft 1s var(--ease) both; }
+.reveal-xr { opacity: 0; }
+.reveal-xr.in { animation: eRight 1s var(--ease) both; }
+@keyframes eLeft { from { opacity: 0; transform: translateX(-32px); } to { opacity: 1; transform: none; } }
+@keyframes eRight { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: none; } }
 
 /* ===== ENTRANCE (on load) ===== */
 .enter-up { opacity: 0; animation: eUp 1s var(--ease) both; }
@@ -311,5 +313,4 @@ button { font-family: inherit; }
     animation: none !important;
     transition: none !important;
   }
-                            }
-
+             }
