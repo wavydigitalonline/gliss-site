@@ -30,7 +30,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal, .reveal-x, .reveal-xr').forEach(el => {
   const delay = el.dataset.delay;
-  if (delay) el.style.transitionDelay = delay + 's';
+  if (delay) el.style.animationDelay = delay + 's';
   revealObserver.observe(el);
 });
 
@@ -83,3 +83,4 @@ form?.addEventListener('submit', (e) => {
   const msg = `Hi Gliss! I'd like to book a free consultation.%0A%0AName: ${get('name')}%0AEmail: ${get('email')}%0ABusiness: ${get('business')}%0APhone: ${get('phone')}%0AService: ${get('service')}%0AMessage: ${get('message')}`;
   window.open(`https://wa.me/27714636308?text=${msg}`, '_blank');
 });
+
