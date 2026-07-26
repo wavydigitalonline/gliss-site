@@ -264,3 +264,25 @@
     transform: translateX(0);
   }
 }
+
+/* Force founder section contrast */
+.founder-section,
+.founder-section .elabel,
+.founder-section h2,
+.founder-section .founder-text,
+.founder-section p {
+  color: inherit !important;
+}
+.founder-section {
+  background: #1c1b19 !important;
+  color: #e8e4dc !important;
+}
+.founder-section .elabel {
+  color: #9a958c !important;
+}
+.founder-section h2 {
+  color: #f0ebe3 !important;
+}
+.founder-section .founder-text {
+  color: #d4cfc6 !important;
+}
