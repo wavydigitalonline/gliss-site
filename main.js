@@ -9,10 +9,33 @@ const navToggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-navToggle?.addEventListener('click', () => mobileMenu.classList.add('open'));
-mobileMenuClose?.addEventListener('click', () => mobileMenu.classList.remove('open'));
+if (navToggle && mobileMenu) {
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('open');
+  });
+}
+
+if (mobileMenuClose && mobileMenu) {
+  mobileMenuClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.remove('open');
+  });
+}
+
 document.querySelectorAll('.mobile-menu-link, .mobile-menu-cta').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (mobileMenu && mobileMenu.classList.contains('open')) {
+    if (!mobileMenu.contains(e.target) && !navToggle.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+    }
+  }
 });
 
 // Scroll to top on load
