@@ -1,268 +1,123 @@
 /* ============================================================
-   GLISS — Advanced Animation Module
-   Premium · Minimal · Cinematic · Scroll-driven
-   Drop this file into your project and link after style.css
+   GLISS — Smooth Animation Module (No-Jump Edition)
+   Premium · Subtle · Mobile-friendly · Conflict-resistant
    ============================================================ */
 
-/* ------------------------------------------------------------
-   1. Custom Properties & Easing
-   ------------------------------------------------------------ */
 :root {
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --ease-in-out-soft: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  --duration-fast: 0.45s;
-  --duration-base: 0.8s;
-  --duration-slow: 1.2s;
-  --duration-cinematic: 1.6s;
-
-  --reveal-distance: 48px;
-  --reveal-scale: 0.97;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.25, 1, 0.5, 1);
+  --dur: 0.75s;
+  --dur-slow: 1.1s;
 }
 
 /* ------------------------------------------------------------
-   2. Base Reveal System (Scroll-Driven where supported)
+   Base state — very gentle
    ------------------------------------------------------------ */
 .reveal,
 .reveal-x,
 .reveal-xr,
 .enter-up,
 .enter-up-lg,
-.enter-fade {
-  opacity: 0;
+.enter-fade,
+.service-item,
+.outcome,
+.role,
+.founder-text {
+  opacity: 0.01;
   will-change: transform, opacity;
 }
 
-/* Fallback for browsers without scroll-driven animations */
-@supports not (animation-timeline: view()) {
-  .reveal,
-  .enter-up {
-    transform: translateY(var(--reveal-distance));
-    transition: opacity var(--duration-base) var(--ease-out-expo),
-                transform var(--duration-base) var(--ease-out-expo);
-  }
-
-  .reveal-x {
-    transform: translateX(-40px);
-    transition: opacity var(--duration-base) var(--ease-out-expo),
-                transform var(--duration-base) var(--ease-out-expo);
-  }
-
-  .reveal-xr {
-    transform: translateX(40px);
-    transition: opacity var(--duration-base) var(--ease-out-expo),
-                transform var(--duration-base) var(--ease-out-expo);
-  }
-
-  .enter-up-lg {
-    transform: translateY(72px);
-    transition: opacity var(--duration-slow) var(--ease-out-expo),
-                transform var(--duration-slow) var(--ease-out-expo);
-  }
-
-  .enter-fade {
-    transition: opacity var(--duration-slow) var(--ease-out-expo);
-  }
-
-  .in-view .reveal,
-  .in-view .enter-up,
-  .in-view .enter-up-lg,
-  .in-view .enter-fade,
-  .in-view .reveal-x,
-  .in-view .reveal-xr,
-  .reveal.in-view,
-  .enter-up.in-view,
-  .enter-up-lg.in-view,
-  .enter-fade.in-view,
-  .reveal-x.in-view,
-  .reveal-xr.in-view {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Modern scroll-driven animations */
-@supports (animation-timeline: view()) {
-  .reveal {
-    animation: reveal-up var(--duration-base) var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 5% cover 25%;
-  }
-
-  .reveal-x {
-    animation: reveal-left var(--duration-base) var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 5% cover 25%;
-  }
-
-  .reveal-xr {
-    animation: reveal-right var(--duration-base) var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 5% cover 25%;
-  }
-
-  .enter-up {
-    animation: reveal-up var(--duration-base) var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 20%;
-  }
-
-  .enter-up-lg {
-    animation: reveal-up-lg var(--duration-slow) var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
-  }
-
-  .enter-fade {
-    animation: fade-in var(--duration-slow) var(--ease-out-expo) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 25%;
-  }
-}
-
-/* Keyframes */
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(var(--reveal-distance));
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes reveal-up-lg {
-  from {
-    opacity: 0;
-    transform: translateY(72px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes reveal-left {
-  from {
-    opacity: 0;
-    transform: translateX(-48px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes reveal-right {
-  from {
-    opacity: 0;
-    transform: translateX(48px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* ------------------------------------------------------------
-   3. Stagger Delays (data-delay attribute support)
-   ------------------------------------------------------------ */
-[data-delay="0"]   { animation-delay: 0s; }
-[data-delay=".08"] { animation-delay: 0.08s; }
-[data-delay=".1"]  { animation-delay: 0.1s; }
-[data-delay=".15"] { animation-delay: 0.15s; }
-[data-delay=".2"]  { animation-delay: 0.2s; }
-[data-delay=".25"] { animation-delay: 0.25s; }
-[data-delay=".3"]  { animation-delay: 0.3s; }
-[data-delay=".4"]  { animation-delay: 0.4s; }
-[data-delay=".5"]  { animation-delay: 0.5s; }
-[data-delay=".6"]  { animation-delay: 0.6s; }
-[data-delay=".7"]  { animation-delay: 0.7s; }
-[data-delay=".8"]  { animation-delay: 0.8s; }
-[data-delay="1"]   { animation-delay: 1s; }
-
-/* ------------------------------------------------------------
-   4. Hero-Specific Cinematic Entrance
-   ------------------------------------------------------------ */
-.hero-content .elabel {
-  animation: fade-in 1s var(--ease-out-expo) 0.3s both;
-}
-
-.hero-content .h1 {
-  animation: reveal-up-lg 1.4s var(--ease-out-expo) 0.5s both;
-}
-
-.hero-content .hero-sub {
-  animation: fade-in 1.2s var(--ease-out-expo) both;
-}
-
-.hero-content .hero-sub:nth-of-type(1) { animation-delay: 1s; }
-.hero-content .hero-sub:nth-of-type(2) { animation-delay: 1.35s; }
-
-/* Scroll hint subtle pulse */
-.scroll-hint {
-  animation: scroll-hint 2.8s var(--ease-in-out-soft) infinite;
-}
-
-@keyframes scroll-hint {
-  0%, 100% { opacity: 0.45; transform: translateY(0); }
-  50%      { opacity: 0.85; transform: translateY(6px); }
-}
-
-/* ------------------------------------------------------------
-   5. Image / Cinema Reveals
-   ------------------------------------------------------------ */
-.cinema-inner img {
-  transform: scale(1.06);
-  transition: transform 1.8s var(--ease-out-expo);
-}
-
-.section.in-view .cinema-inner img,
-.home-sec.in-view .cinema-inner img,
-.hero.in-view .cinema-inner img {
-  transform: scale(1);
-}
-
-/* Soft clip-path image reveal (optional enhancement) */
-.cinema-reveal img {
-  clip-path: inset(8% 8% 8% 8%);
-  transition: clip-path 1.5s var(--ease-out-expo),
-              transform 1.8s var(--ease-out-expo);
-}
-
-.section.in-view .cinema-reveal img,
-.home-sec.in-view .cinema-reveal img {
-  clip-path: inset(0 0 0 0);
-}
-
-/* ------------------------------------------------------------
-   6. Service Items & Outcomes
-   ------------------------------------------------------------ */
+.reveal,
+.enter-up,
 .service-item,
-.outcome {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.9s var(--ease-out-expo),
-              transform 0.9s var(--ease-out-expo);
+.outcome,
+.role,
+.founder-text {
+  transform: translateY(18px);
 }
 
+.enter-up-lg {
+  transform: translateY(28px);
+}
+
+.reveal-x {
+  transform: translateX(-16px);
+}
+
+.reveal-xr {
+  transform: translateX(16px);
+}
+
+.enter-fade {
+  transform: none;
+}
+
+/* ------------------------------------------------------------
+   Visible state
+   ------------------------------------------------------------ */
+.reveal.in-view,
+.enter-up.in-view,
+.enter-up-lg.in-view,
+.enter-fade.in-view,
+.reveal-x.in-view,
+.reveal-xr.in-view,
 .service-item.in-view,
 .outcome.in-view,
+.role.in-view,
+.founder-text.in-view,
+.section.in-view .reveal,
+.section.in-view .enter-up,
+.section.in-view .enter-up-lg,
+.section.in-view .enter-fade,
+.section.in-view .reveal-x,
+.section.in-view .reveal-xr,
+.home-sec.in-view .reveal,
+.home-sec.in-view .enter-up,
+.home-sec.in-view .enter-up-lg,
+.home-sec.in-view .enter-fade,
 .services-list.in-view .service-item,
-.space-y-5.in-view .outcome {
+.space-y-5.in-view .outcome,
+.roles-grid.in-view .role,
+.founder-grid.in-view .founder-text {
   opacity: 1;
   transform: none;
 }
 
-/* Stagger service items automatically */
+.reveal,
+.reveal-x,
+.reveal-xr,
+.enter-up,
+.enter-up-lg,
+.enter-fade,
+.service-item,
+.outcome,
+.role,
+.founder-text {
+  transition: opacity var(--dur) var(--ease-out),
+              transform var(--dur) var(--ease-out);
+}
+
+.enter-up-lg {
+  transition-duration: var(--dur-slow);
+}
+
+/* ------------------------------------------------------------
+   Stagger delays (gentle)
+   ------------------------------------------------------------ */
+[data-delay="0"]   { transition-delay: 0s; }
+[data-delay=".08"] { transition-delay: 0.06s; }
+[data-delay=".1"]  { transition-delay: 0.08s; }
+[data-delay=".15"] { transition-delay: 0.12s; }
+[data-delay=".2"]  { transition-delay: 0.16s; }
+[data-delay=".25"] { transition-delay: 0.2s; }
+[data-delay=".3"]  { transition-delay: 0.24s; }
+[data-delay=".4"]  { transition-delay: 0.3s; }
+[data-delay=".5"]  { transition-delay: 0.36s; }
+[data-delay=".6"]  { transition-delay: 0.42s; }
+[data-delay=".7"]  { transition-delay: 0.48s; }
+[data-delay=".8"]  { transition-delay: 0.54s; }
+[data-delay="1"]   { transition-delay: 0.65s; }
+
 .services-list .service-item:nth-child(1) { transition-delay: 0.05s; }
 .services-list .service-item:nth-child(2) { transition-delay: 0.12s; }
 .services-list .service-item:nth-child(3) { transition-delay: 0.19s; }
@@ -271,117 +126,93 @@
 .services-list .service-item:nth-child(6) { transition-delay: 0.40s; }
 
 /* ------------------------------------------------------------
-   7. CTA & Interactive Elements
+   Hero entrance (one-time, soft)
+   ------------------------------------------------------------ */
+.hero-content .elabel {
+  opacity: 0;
+  animation: soft-fade 1s var(--ease-out) 0.25s forwards;
+}
+
+.hero-content .h1 {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: soft-rise 1.15s var(--ease-out) 0.4s forwards;
+}
+
+.hero-content .hero-sub {
+  opacity: 0;
+  animation: soft-fade 1s var(--ease-out) forwards;
+}
+
+.hero-content .hero-sub:nth-of-type(1) { animation-delay: 0.85s; }
+.hero-content .hero-sub:nth-of-type(2) { animation-delay: 1.1s; }
+
+@keyframes soft-fade {
+  to { opacity: 1; }
+}
+
+@keyframes soft-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-hint {
+  animation: hint-pulse 3s ease-in-out infinite;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.75; }
+}
+
+/* ------------------------------------------------------------
+   CTA hover — refined, no jump
    ------------------------------------------------------------ */
 .cta-btn,
 .nav-cta,
 .link-arrow,
 .f-submit {
-  transition: transform var(--duration-fast) var(--ease-out-expo),
-              opacity var(--duration-fast) var(--ease-out-expo),
-              background-color var(--duration-fast) var(--ease-out-expo),
-              color var(--duration-fast) var(--ease-out-expo),
-              box-shadow var(--duration-fast) var(--ease-out-expo);
+  transition: transform 0.35s var(--ease-out),
+              opacity 0.35s var(--ease-out);
 }
 
 .cta-btn:hover,
 .nav-cta:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px);
 }
 
 .cta-btn:active,
 .nav-cta:active {
-  transform: translateY(-1px) scale(0.99);
-  transition-duration: 0.15s;
-}
-
-.link-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
+  transform: translateY(0);
+  transition-duration: 0.12s;
 }
 
 .link-arrow svg {
-  transition: transform var(--duration-fast) var(--ease-out-expo);
+  transition: transform 0.35s var(--ease-out);
 }
 
 .link-arrow:hover svg {
-  transform: translate(3px, -3px);
+  transform: translate(2px, -2px);
 }
 
 /* ------------------------------------------------------------
-   8. Roles Grid (Collective page)
+   Image scale — extremely subtle
    ------------------------------------------------------------ */
-.role {
-  opacity: 0;
-  transform: translateY(20px) scale(0.96);
-  transition: opacity 0.7s var(--ease-out-expo),
-              transform 0.7s var(--ease-out-expo);
+.cinema-inner img {
+  transform: scale(1.03);
+  transition: transform 1.6s var(--ease-out);
 }
 
-.roles-grid.in-view .role {
-  opacity: 1;
-  transform: none;
-}
-
-/* ------------------------------------------------------------
-   9. Founder & Contact Sections
-   ------------------------------------------------------------ */
-.founder-text {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s var(--ease-out-expo),
-              transform 0.8s var(--ease-out-expo);
-}
-
-.founder-grid.in-view .founder-text {
-  opacity: 1;
-  transform: none;
-}
-
-.founder-grid.in-view .founder-text:nth-of-type(1) { transition-delay: 0.1s; }
-.founder-grid.in-view .founder-text:nth-of-type(2) { transition-delay: 0.2s; }
-.founder-grid.in-view .founder-text:nth-of-type(3) { transition-delay: 0.3s; }
-.founder-grid.in-view .founder-text:nth-of-type(4) { transition-delay: 0.4s; }
-.founder-grid.in-view .founder-text:nth-of-type(5) { transition-delay: 0.5s; }
-
-/* ------------------------------------------------------------
-   10. View Transitions (Page Changes)
-   ------------------------------------------------------------ */
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.55s;
-  animation-timing-function: var(--ease-out-expo);
-}
-
-::view-transition-old(root) {
-  animation-name: fade-out-scale;
-}
-
-::view-transition-new(root) {
-  animation-name: fade-in-scale;
-}
-
-@keyframes fade-out-scale {
-  to {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-}
-
-@keyframes fade-in-scale {
-  from {
-    opacity: 0;
-    transform: scale(1.02);
-  }
+.section.in-view .cinema-inner img,
+.home-sec.in-view .cinema-inner img,
+.hero.in-view .cinema-inner img {
+  transform: scale(1);
 }
 
 /* ------------------------------------------------------------
-   11. Reduced Motion Preference
+   Reduced motion
    ------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -390,7 +221,6 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 
   .reveal,
@@ -402,22 +232,76 @@
   .service-item,
   .outcome,
   .role,
-  .founder-text {
+  .founder-text,
+  .hero-content .elabel,
+  .hero-content .h1,
+  .hero-content .hero-sub {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
   }
 }
 
 /* ------------------------------------------------------------
-   12. Utility Classes
+   Mobile safety — even smaller movement
    ------------------------------------------------------------ */
-.will-animate {
-  will-change: transform, opacity;
+@media (max-width: 768px) {
+  .reveal,
+  .enter-up,
+  .service-item,
+  .outcome,
+  .role,
+  .founder-text {
+    transform: translateY(12px);
+  }
+
+  .enter-up-lg {
+    transform: translateY(18px);
+  }
+
+  .reveal-x,
+  .reveal-xr {
+    transform: translateX(0);
+  }
 }
 
-.no-animate {
-  animation: none !important;
-  transition: none !important;
+
+
+
+/* ============================================================
+   FOUNDER SECTION — force visibility & contrast
+   This section intentionally breaks the dark cinematic rhythm
+   ============================================================ */
+.founder-section {
+  background: #1c1b19 !important;
+  color: #e8e4dc !important;
+}
+
+.founder-section .elabel {
+  color: #9a958c !important;
   opacity: 1 !important;
   transform: none !important;
+}
+
+.founder-section h2,
+.founder-section .h2 {
+  color: #f0ebe3 !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.founder-section .founder-text,
+.founder-section p {
+  color: #d4cfc6 !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.founder-section .no-animate {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
 }
