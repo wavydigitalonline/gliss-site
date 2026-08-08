@@ -12,12 +12,12 @@
   --fg-70: hsla(40, 20%, 94%, 0.7);
   --fg-80: hsla(40, 20%, 94%, 0.8);
   --violet: hsl(255, 90%, 65%);
-  --tq: hsl(170, 65%, 52%);
-  --tq-40: hsla(170, 65%, 52%, 0.4);
-  --tq-50: hsla(170, 65%, 52%, 0.5);
-  --tq-60: hsla(170, 65%, 52%, 0.6);
-  --tq-70: hsla(170, 65%, 52%, 0.7);
-  --tq-80: hsla(170, 65%, 52%, 0.8);
+  --tq: #8B1018;
+  --tq-40: rgba(139, 16, 24, 0.4);
+  --tq-50: rgba(139, 16, 24, 0.5);
+  --tq-60: rgba(139, 16, 24, 0.6);
+  --tq-70: rgba(139, 16, 24, 0.7);
+  --tq-80: rgba(139, 16, 24, 0.85);
   --dark: #050507;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ff-h: 'Bodoni Moda', serif;
@@ -43,7 +43,11 @@ button { font-family: inherit; }
 @keyframes navIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 .nav-inner { max-width: 80rem; margin: 0 auto; padding: 0 1.5rem; height: 5rem; display: flex; align-items: center; justify-content: space-between; pointer-events: auto; }
 @media(min-width:1024px) { .nav-inner { padding: 0 2.5rem; } }
-.nav-logo { font-family: var(--ff-id); font-size: 1.5rem; font-weight: 500; letter-spacing: .15em; color: var(--fg); }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 36px; width: auto; display: block; }
+@media(min-width:768px){ .nav-logo img { height: 42px; } }
+.nav-logo-text {
+ font-family: var(--ff-id); font-size: 1.5rem; font-weight: 500; letter-spacing: .15em; color: var(--fg); }
 .nav-links { display: none; list-style: none; align-items: center; gap: 2.5rem; }
 @media(min-width:768px) { .nav-links { display: flex; } }
 .nav-link { font-family: var(--ff-l); font-size: .75rem; text-transform: uppercase; letter-spacing: .2em; color: var(--fg-60); transition: color .3s; cursor: pointer; }
