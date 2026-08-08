@@ -1,264 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GLISS — Nothing essential should be lost in translation</title>
-  <meta name="description" content="GLISS protects the essence of extraordinary businesses and translates it faithfully across every touchpoint. Brand positioning, identity, digital flagship, and long-term stewardship." />
-  <link rel="canonical" href="https://gliss.co.za/" />
-  <meta property="og:title" content="GLISS — Nothing essential should be lost in translation" />
-  <meta property="og:description" content="We don't build brands. We reveal them. And ensure nothing essential is lost in the translation." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://gliss.co.za/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-weight='400' fill='%23f5f3ef'>G</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GLISS — Beautiful Systems. Technology should disappear. Beauty remains. We make businesses easier to choose.">
+<title>GLISS — Beautiful Systems</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="gliss-animations.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">GLISS</a>
-      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">GLISS</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Index</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://wa.me/27714636308?text=Hi%20Gliss!%20I%27d%20like%20to%20book%20a%20free%20Friction%20Audit." target="_blank" rel="noopener" class="nav-cta">Begin</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <nav class="nav">
-        <a href="journey.html">The Journey</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="nav-cta">Begin</a>
-      </nav>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <p class="eyebrow">GLISS</p>
-          <h1 class="font-display">Nothing essential<br />should be lost<br />in translation.</h1>
-          <p class="hero-lead">
-            Your business is already extraordinary.
-            <span>Our work is making sure the world experiences it that way.</span>
-          </p>
-          <a href="contact.html" class="btn btn-primary">Begin the Translation</a>
-        </div>
-      </div>
-    </section>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" class="mobile-menu-link">Index</a>
+  <a href="about.html" class="mobile-menu-link">About</a>
+  <a href="services.html" class="mobile-menu-link">Services</a>
+  <a href="contact.html" class="mobile-menu-link">Contact</a>
+  <a href="https://wa.me/27714636308?text=Hi%20Gliss!%20I%27d%20like%20to%20book%20a%20free%20Friction%20Audit." target="_blank" rel="noopener" class="mobile-menu-cta">Begin →</a>
+</div>
 
-    <hr class="rule" />
+<!-- HERO (kept) -->
+<section class="hero">
+  <div class="cinema hero-bg" data-parallax="true">
+    <div class="cinema-inner">
+      <img src="images/hero-home.jpg" alt="Monolithic stone columns with electric blue glow">
+    </div>
+  </div>
+  <div class="hero-ov ov-home"></div>
+  <div class="pfield"></div>
+  <div class="hero-content">
+    <span class="elabel enter-up" style="margin-bottom:2.5rem;">We remove friction</span>
+    <h1 class="h1 sz-s1 enter-up-lg" style="max-width:56rem;">Technology should disappear.</h1>
+    <p class="hero-sub enter-fade">Beauty remains.</p>
+    <p class="hero-sub enter-fade">We make businesses easier to choose.</p>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+  </div>
+</section>
 
-    <!-- ESSENCE -->
-    <section>
-      <div class="container">
-        <div class="reveal-block">
-          <p class="eyebrow">Essence</p>
-          <p>Every business has an essence.</p>
-          <p>Not every business expresses it.</p>
-          <p>Some become diluted by trends.<br />
-          Some disappear behind generic websites.<br />
-          Some lose themselves as they grow.<br />
-          Others simply never learn how to translate what makes them remarkable.</p>
-          <p class="emphasis">That’s where we begin.</p>
-        </div>
-      </div>
-    </section>
+<!-- THE PROBLEM -->
+<section class="home-sec center">
+  <div class="cinema hero-bg" data-parallax="true">
+    <div class="cinema-inner">
+      <img src="images/hero-interior.jpg" alt="Minimalist interior with natural light">
+    </div>
+  </div>
+  <div class="hero-ov ov-idea"></div>
+  <div class="home-ct w-3xl center">
+    <div class="reveal"><span class="elabel" style="margin-bottom:2.75rem;display:block;">The Problem</span></div>
+    <h2 class="h2 sz-s4 reveal" data-delay=".1">Every business leaks momentum.</h2>
+    <p class="body-lg reveal" data-delay=".25" style="margin-top:2rem;">Some lose it in seconds.<br>Others lose it over months.</p>
+    <p class="body-lg reveal" data-delay=".4" style="margin-top:1.75rem;">Confusing websites.<br>Slow replies.<br>Broken journeys.<br>Different messages in different places.</p>
+    <p class="body-lg reveal" data-delay=".55" style="margin-top:1.75rem;">None of them feel dramatic.<br>Until you realise they’re all costing the same thing.</p>
+    <p class="friction reveal" data-delay=".7" style="margin-top:2rem;">Trust.</p>
+  </div>
+</section>
 
-    <hr class="rule" />
+<!-- OUR WORK -->
+<section class="home-sec">
+  <div class="cinema hero-bg" data-parallax="true">
+    <div class="cinema-inner">
+      <img src="images/hero-systems.jpg" alt="Glass shards and light trails">
+    </div>
+  </div>
+  <div class="hero-ov ov-systems"></div>
+  <div class="home-ct w-2xl">
+    <div class="reveal"><span class="elabel" style="margin-bottom:2.75rem;display:block;">Our Work</span></div>
+    <h2 class="h2 sz-s3 reveal" data-delay=".1">We don’t build websites.<br>We build clarity.</h2>
+    <p class="body-lg reveal" data-delay=".25" style="margin-top:2.25rem;max-width:32rem;">Every decision serves one purpose.</p>
+    <div class="space-y-4" style="margin-top:2.5rem;">
+      <p class="outcome reveal" data-delay=".35"><span class="outcome-num">01</span>Be understood instantly.</p>
+      <p class="outcome reveal" data-delay=".42"><span class="outcome-num">02</span>Be remembered.</p>
+      <p class="outcome reveal" data-delay=".49"><span class="outcome-num">03</span>Be easy to choose.</p>
+      <p class="outcome reveal" data-delay=".56"><span class="outcome-num">04</span>Be effortless to contact.</p>
+      <p class="outcome reveal" data-delay=".63"><span class="outcome-num">05</span>Feel like one business everywhere.</p>
+    </div>
+    <p class="body-lg reveal" data-delay=".75" style="margin-top:3rem;opacity:0.85;">Technology changes.<br>Clarity doesn’t.</p>
+    <div class="reveal" data-delay=".85" style="margin-top:3.5rem;">
+      <a href="services.html" class="link-arrow">All services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+  </div>
+</section>
 
-    <!-- REVEAL -->
-    <section>
-      <div class="container">
-        <div class="reveal-block">
-          <p class="eyebrow">Revelation</p>
-          <p class="emphasis">We don’t build brands.<br />We reveal them.</p>
-          <p>The most valuable part of your business already exists.</p>
-          <p class="stacked-lines" style="margin: 1.75rem 0;">
-            <span>It lives in your taste.</span>
-            <span>Your standards.</span>
-            <span>Your philosophy.</span>
-            <span>Your craft.</span>
-          </p>
-          <p>Our work is to find it — and make sure it survives every translation.</p>
-          <p class="stacked-lines" style="margin-top: 1.75rem; font-size: 1.25rem;">
-            <span>Identity.</span>
-            <span>Digital.</span>
-            <span>Physical.</span>
-            <span>Human.</span>
-          </p>
-        </div>
-      </div>
-    </section>
+<!-- HOW IT WORKS -->
+<section class="home-sec center">
+  <div class="cinema hero-bg" data-parallax="true">
+    <div class="cinema-inner">
+      <img src="images/hero-process.jpg" alt="Clear path through architecture of light">
+    </div>
+  </div>
+  <div class="hero-ov ov-systems"></div>
+  <div class="home-ct w-2xl">
+    <div class="reveal"><span class="elabel" style="margin-bottom:2.75rem;display:block;">How It Works</span></div>
+    <h2 class="h2 sz-s3 reveal" data-delay=".1">A clear path.<br>No wasted motion.</h2>
+    <div class="space-y-5" style="margin-top:3rem;">
+      <p class="outcome reveal" data-delay=".2"><span class="outcome-num">01</span>Identify where customers are being lost.</p>
+      <p class="outcome reveal" data-delay=".3"><span class="outcome-num">02</span>Remove unnecessary friction.</p>
+      <p class="outcome reveal" data-delay=".4"><span class="outcome-num">03</span>Design a clearer experience.</p>
+      <p class="outcome reveal" data-delay=".5"><span class="outcome-num">04</span>Build it.</p>
+      <p class="outcome reveal" data-delay=".6"><span class="outcome-num">05</span>Refine until everything feels seamless.</p>
+    </div>
+  </div>
+</section>
 
-    <hr class="rule" />
+<!-- BELIEF -->
+<section class="home-sec center">
+  <div class="cinema hero-bg" data-parallax="true">
+    <div class="cinema-inner">
+      <img src="images/hero-belonging.jpg" alt="Gateway of light">
+    </div>
+  </div>
+  <div class="hero-ov ov-belonging-h"></div>
+  <div class="home-ct w-3xl center">
+    <div class="reveal"><span class="elabel" style="margin-bottom:2.75rem;display:block;">Belief</span></div>
+    <h2 class="h2 sz-s2 reveal" data-delay=".1">Beautiful businesses are easier to trust.</h2>
+    <p class="body-lg reveal" data-delay=".25" style="margin-top:2.25rem;max-width:34rem;margin-left:auto;margin-right:auto;">Not because they’re expensive.<br>Not because they’re fashionable.</p>
+    <p class="body-lg reveal" data-delay=".4" style="margin-top:1.75rem;max-width:34rem;margin-left:auto;margin-right:auto;">Because every detail quietly says,<br>“We care.”</p>
+    <p class="body-lg reveal" data-delay=".55" style="margin-top:1.75rem;">People notice.<br>Even when they can’t explain why.</p>
+  </div>
+</section>
 
-    <!-- TRANSLATION -->
-    <section>
-      <div class="container">
-        <div class="reveal-block">
-          <p class="eyebrow">Translation</p>
-          <p>Every interaction tells a story.</p>
-          <p class="stacked-lines" style="margin: 1.5rem 0; font-size: 1.3rem;">
-            <span>A website.</span>
-            <span>A proposal.</span>
-            <span>An Instagram post.</span>
-            <span>An advertisement.</span>
-            <span>A conversation.</span>
-            <span>A photograph.</span>
-          </p>
-          <p>None of these exist independently.</p>
-          <p>Together, they become the business people remember.<br />Or forget.</p>
-          <p class="emphasis">GLISS exists to ensure they all speak with the same voice.</p>
-        </div>
-      </div>
-    </section>
+<!-- FOR THE RIGHT PEOPLE -->
+<section class="home-sec center">
+  <div class="cinema hero-bg" data-parallax="true">
+    <div class="cinema-inner">
+      <img src="images/hero-people.jpg" alt="Quiet forms of light">
+    </div>
+  </div>
+  <div class="hero-ov ov-systems"></div>
+  <div class="home-ct w-2xl center">
+    <div class="reveal"><span class="elabel" style="margin-bottom:2.75rem;display:block;">For the right people</span></div>
+    <h2 class="h2 sz-s4 reveal" data-delay=".1">Maybe you’ve been feeling it too.</h2>
+    <p class="body-lg reveal" data-delay=".25" style="margin-top:2.25rem;">Your business has grown.<br>But your online presence hasn’t.</p>
+    <p class="body-lg reveal" data-delay=".4" style="margin-top:1.75rem;">You know your work deserves better.<br>You want something quieter.<br>More intentional.<br>More coherent.</p>
+    <p class="welcome reveal" data-delay=".55" style="margin-top:2.5rem;">If that sounds familiar—<br>we’ll probably get along.</p>
+  </div>
+</section>
 
-    <hr class="rule" />
-
-    <!-- WITHOUT DISTORTION -->
-    <section>
-      <div class="container">
-        <div class="reveal-block">
-          <p class="eyebrow">Protection</p>
-          <p class="emphasis">Expression without distortion.</p>
-          <p>Technology changes.<br />Platforms change.<br />Trends disappear.</p>
-          <p>Your essence shouldn’t.</p>
-          <p>Every decision we make protects what makes your business impossible to replace.</p>
-        </div>
-      </div>
-    </section>
-
-    <hr class="rule" />
-
-    <!-- METHOD -->
-    <section>
-      <div class="container">
-        <p class="eyebrow">The GLISS Method</p>
-        <h2 class="font-display" style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 0.5rem;">Discover. Distill. Translate. Protect.</h2>
-        <div class="method-grid">
-          <div class="method-item">
-            <span class="method-num">01</span>
-            <h3>Discover</h3>
-            <p>Every extraordinary business has something the market isn’t experiencing yet. We find it.</p>
-          </div>
-          <div class="method-item">
-            <span class="method-num">02</span>
-            <h3>Distill</h3>
-            <p>We remove everything that isn’t essential. Until only truth remains.</p>
-          </div>
-          <div class="method-item">
-            <span class="method-num">03</span>
-            <h3>Translate</h3>
-            <p>Your identity becomes a system. Every touchpoint. One soul. Many mediums.</p>
-          </div>
-          <div class="method-item">
-            <span class="method-num">04</span>
-            <h3>Protect</h3>
-            <p>As your business grows, your identity shouldn’t disappear with it. We build systems that preserve it.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="rule" />
-
-    <!-- VALUES -->
-    <section>
-      <div class="container">
-        <p class="eyebrow">What we hold</p>
-        <h2 class="font-display" style="font-size: clamp(2rem, 4vw, 2.75rem);">Essence. Expression. Beauty. Taste. Desire.</h2>
-        <div class="values-grid">
-          <div class="value-card">
-            <h3>Essence</h3>
-            <p>Every extraordinary business already possesses something irreplaceable.</p>
-          </div>
-          <div class="value-card">
-            <h3>Expression</h3>
-            <p>Faithfully translating that essence into every medium.</p>
-          </div>
-          <div class="value-card">
-            <h3>Beauty</h3>
-            <p>Beauty is timeless. Technology should reveal it, not replace it.</p>
-          </div>
-          <div class="value-card">
-            <h3>Taste</h3>
-            <p>Disciplined restraint over unnecessary complexity.</p>
-          </div>
-          <div class="value-card">
-            <h3>Desire</h3>
-            <p>The highest expression of a brand isn’t attention. It’s longing.</p>
-          </div>
-        </div>
-        <p class="note" style="margin-top: 3rem; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--charcoal); font-style: italic;">
-          We don’t create noise. We create businesses people wish belonged to them.
-        </p>
-      </div>
-    </section>
-
-    <hr class="rule" />
-
-    <!-- FOR THE RIGHT PEOPLE -->
-    <section>
-      <div class="container">
-        <div class="reveal-block">
-          <p class="eyebrow">Selectivity</p>
-          <p class="emphasis">We work with founders who care.</p>
-          <p class="stacked-lines" style="margin: 1.5rem 0;">
-            <span>About details.</span>
-            <span>About craft.</span>
-            <span>About beauty.</span>
-            <span>About meaning.</span>
-          </p>
-          <p>People who refuse to build ordinary businesses.<br />And refuse to look like them.</p>
-        </div>
-      </div>
-    </section>
-
-    <hr class="rule" />
-
-    <!-- SHORT BRIDGE -->
-    <section>
-      <div class="container text-center" style="max-width: 520px;">
-        <p class="font-display" style="font-size: clamp(1.6rem, 3.5vw, 2.1rem); line-height: 1.4; color: var(--charcoal);">
-          Your customers don’t need another website.<br />
-          They need to experience you.
-        </p>
-        <p style="margin-top: 1.5rem;">
-          <a href="journey.html" class="btn btn-ghost">Explore the Journey</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band">
-      <div class="container">
-        <h2 class="font-display">The business already exists.</h2>
-        <p>Let’s make sure nothing essential gets lost.</p>
-        <a href="contact.html" class="btn btn-primary">Begin the Translation</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <div class="footer-brand">GLISS</div>
-          <p class="footer-tag">Nothing essential should be lost in translation.</p>
-        </div>
-        <div class="footer-links">
-          <a href="journey.html">The Journey</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 GLISS. South Africa.</span>
-        <span>Made with restraint.</span>
+<!-- THE PERSON BEHIND GLISS -->
+<section class="section section-lg founder-section" style="background:#1c1b19 !important; color:#e8e4dc !important;">
+  <div class="founder-grid" style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <div class="reveal-x">
+      <span class="elabel" style="margin-bottom:2.5rem;display:block;color:#9a958c !important;">The person behind GLISS</span>
+      <h2 class="h2 sz-s5b mb-10" style="color:#f0ebe3 !important;">Why GLISS exists.</h2>
+      <p class="founder-text no-animate" style="color:#d4cfc6 !important;">I started GLISS because I couldn’t stop noticing friction.</p>
+      <p class="founder-text no-animate" style="color:#d4cfc6 !important;">Businesses doing incredible work… held back by experiences that didn’t reflect the quality behind them.</p>
+      <p class="founder-text no-animate" style="color:#d4cfc6 !important;">I’ve always believed that design isn’t decoration.<br>It’s communication.</p>
+      <p class="founder-text no-animate" style="color:#d4cfc6 !important;">Every colour.<br>Every word.<br>Every interaction.<br>Every pause.<br>It all says something.</p>
+      <p class="founder-text no-animate" style="color:#d4cfc6 !important;">GLISS exists to make sure it says the right thing.<br>Not louder.<br>Clearer.</p>
+      <p class="founder-text no-animate" style="color:#9a958c !important;margin-top:2.5rem;">— Kevin<br>Founder, GLISS</p>
+    </div>
+    <div class="founder-img reveal-xr" data-delay=".15">
+      <div style="width:100%;height:100%;overflow:hidden;border-radius:2px;">
+        <img src="images/founder.jpg" alt="Kevin, founder of GLISS" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="main.js"></script>
+<!-- BEGIN -->
+<section class="home-sec center">
+  <div class="cinema hero-bg">
+    <div class="cinema-inner">
+      <img src="images/hero-contact.jpg" alt="Ocean at dusk">
+    </div>
+  </div>
+  <div class="hero-ov ov-contact-h"></div>
+  <div class="home-ct w-2xl center">
+    <div class="reveal"><span class="elabel" style="margin-bottom:2.75rem;display:block;">Begin</span></div>
+    <h2 class="h2 sz-s3 reveal" data-delay=".1">Let’s remove the friction.</h2>
+    <p class="body-lg reveal" data-delay=".25" style="margin-top:2rem;max-width:26rem;margin-left:auto;margin-right:auto;opacity:0.9;">Let’s make choosing you feel effortless.</p>
+    <p class="body-lg reveal" data-delay=".35" style="margin-top:1rem;opacity:0.75;">Start with a free Friction Audit.</p>
+    <div class="reveal" data-delay=".5" style="margin-top:3rem;">
+      <a href="https://wa.me/27714636308?text=Hi%20Gliss!%20I%27d%20like%20to%20book%20a%20free%20Friction%20Audit." target="_blank" rel="noopener" class="cta-btn">Book a Free Friction Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">GLISS</a>
+    <p class="footer-tag">Technology should disappear. Beauty remains.</p>
+    <div class="footer-links">
+      <a href="about.html" class="footer-link">About</a>
+      <a href="services.html" class="footer-link">Services</a>
+      <a href="contact.html" class="footer-link">Contact</a>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> GLISS. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="gliss-animations.js"></script>
 </body>
 </html>
