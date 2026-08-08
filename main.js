@@ -1,24 +1,67 @@
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+}
 
-// Mobile menu
+// Mobile menu — single handler (touch+click double-fire was closing instantly)
 const navToggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-navToggle?.addEventListener('click', () => mobileMenu.classList.add('open'));
-mobileMenuClose?.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function openMenu() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.add('open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeMenu() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+}
+
+function toggleMenu(e) {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  if (!mobileMenu) return;
+  if (mobileMenu.classList.contains('open')) closeMenu();
+  else openMenu();
+}
+
+if (navToggle && mobileMenu) {
+  // click only — covers mouse + mobile tap without double-toggle
+  navToggle.addEventListener('click', toggleMenu);
+}
+
+if (mobileMenuClose) {
+  mobileMenuClose.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    closeMenu();
+  });
+}
+
 document.querySelectorAll('.mobile-menu-link, .mobile-menu-cta').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu();
 });
 
 // Scroll to top on load
 window.scrollTo(0, 0);
 
-// Reveal animations (IntersectionObserver)
+// Reveal animations
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -41,45 +84,20 @@ function updateParallax() {
     const rect = container.getBoundingClientRect();
     const vh = window.innerHeight;
     if (rect.bottom < 0 || rect.top > vh) return;
-    const progress = (vh - rect.top) / (rect.height + vh);
-    const clamped = Math.max(0, Math.min(1, progress));
-    const y = -5 + clamped * 10;
-    const img = container.querySelector('img');
-    if (img) img.style.transform = `translate3d(0, ${y}%, 0)`;
+    const progress = (vh - rect.top) / (vh + rect.height);
+    const offset = (progress - 0.5) * 40;
+    const inner = container.querySelector('.cinema-inner');
+    if (inner) inner.style.transform = 'translateY(' + offset + 'px)';
   });
   ticking = false;
 }
 window.addEventListener('scroll', () => {
-  if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
-}, { passive: true });
-updateParallax();
-
-// Particles
-const pfield = document.querySelector('.pfield');
-if (pfield) {
-  for (let i = 0; i < 12; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = `${(i * 8.3) % 100}%`;
-    p.style.top = `${(i * 17) % 100}%`;
-    p.style.animationDuration = `${6 + i}s`;
-    p.style.animationDelay = `${i * 0.5}s`;
-    pfield.appendChild(p);
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
   }
-}
+}, { passive: true });
 
-// Year
+// Footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// Contact form → WhatsApp
-const form = document.getElementById('contactForm');
-form?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const get = (name) => {
-    const el = form.querySelector(`[name="${name}"]`);
-    return el?.value || '—';
-  };
-  const msg = `Hi Gliss! I'd like to book a free consultation.%0A%0AName: ${get('name')}%0AEmail: ${get('email')}%0ABusiness: ${get('business')}%0APhone: ${get('phone')}%0AService: ${get('service')}%0AMessage: ${get('message')}`;
-  window.open(`https://wa.me/27714636308?text=${msg}`, '_blank');
-});
