@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gliss.co.za/sitemap.xml
