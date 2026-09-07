@@ -116,10 +116,15 @@ button { font-family: inherit; }
 .hero-ov { position: absolute; inset: 0; z-index: 1; }
 .hero-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 1.5rem; text-align: center; }
 
-/* ===== OVERLAYS ===== */
-.ov-home { background: linear-gradient(to bottom, rgba(5,5,7,.6), rgba(5,5,7,.3), var(--dark)); }
+/* ===== OVERLAYS — tuned to image focal points ===== */
+.ov-home { background: radial-gradient(ellipse 70% 55% at 50% 45%, rgba(5,5,7,.55), rgba(5,5,7,.25) 45%, rgba(5,5,7,.75) 100%); }
 .ov-idea { background: rgba(5,5,7,.7); }
 .ov-systems { background: linear-gradient(to right, rgba(5,5,7,.9), rgba(5,5,7,.5), rgba(5,5,7,.2)); }
+.ov-essence { background: linear-gradient(105deg, rgba(5,5,7,.88) 0%, rgba(5,5,7,.55) 42%, rgba(5,5,7,.2) 70%, rgba(5,5,7,.35) 100%); }
+.ov-revelation { background: linear-gradient(to bottom, rgba(5,5,7,.35) 0%, rgba(5,5,7,.15) 40%, rgba(5,5,7,.82) 100%); }
+.ov-method { background: linear-gradient(to right, rgba(5,5,7,.92) 0%, rgba(5,5,7,.55) 48%, rgba(5,5,7,.2) 100%); }
+.ov-desire { background: linear-gradient(to top, rgba(5,5,7,.92) 0%, rgba(5,5,7,.45) 38%, rgba(5,5,7,.15) 65%, rgba(5,5,7,.35) 100%); }
+.ov-people { background: linear-gradient(to bottom, rgba(5,5,7,.78) 0%, rgba(5,5,7,.35) 45%, rgba(5,5,7,.55) 100%); }
 .ov-collective-h { background: rgba(5,5,7,.5); }
 .ov-belonging-h { background: linear-gradient(to bottom, rgba(5,5,7,.4), rgba(5,5,7,.3), rgba(5,5,7,.7)); }
 .ov-contact-h { background: linear-gradient(to bottom, rgba(5,5,7,.5), rgba(5,5,7,.8)); }
@@ -165,11 +170,95 @@ button { font-family: inherit; }
 /* ===== HOME SECTIONS ===== */
 .home-sec { position: relative; min-height: 100vh; overflow: hidden; }
 .home-sec.center { justify-content: center; }
-.home-ct { position: absolute; z-index: 2; inset: 0; margin: 0 auto; padding: 8rem 1.5rem; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.home-ct.center { text-align: center; }
+.home-ct { position: absolute; z-index: 2; inset: 0; margin: 0 auto; padding: 8rem 1.5rem; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: left; }
+.home-ct.center { text-align: center; align-items: center; }
 .home-ct.w-2xl { max-width: 42rem; }
 .home-ct.w-3xl { max-width: 48rem; }
 @media(min-width:1024px) { .home-ct.w-2xl { padding-left: 2.5rem; padding-right: 2.5rem; } }
+
+/* Composition — type supports image, not fights it */
+.home-ct.compose-left {
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+  max-width: min(42rem, 92vw);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media(min-width:768px) {
+  .home-ct.compose-left {
+    padding-left: 2.5rem;
+    padding-right: 2rem;
+    max-width: 38rem;
+  }
+}
+@media(min-width:1024px) {
+  .home-ct.compose-left {
+    padding-left: 4rem;
+    max-width: 36rem;
+  }
+}
+
+.home-ct.compose-lower {
+  justify-content: flex-end;
+  padding-bottom: 5rem;
+  padding-top: 6rem;
+}
+@media(min-width:768px) {
+  .home-ct.compose-lower { padding-bottom: 6.5rem; }
+}
+@media(min-width:1024px) {
+  .home-ct.compose-lower { padding-bottom: 7.5rem; }
+}
+
+.home-ct.compose-upper {
+  justify-content: flex-start;
+  padding-top: 7.5rem;
+  padding-bottom: 4rem;
+}
+@media(min-width:768px) {
+  .home-ct.compose-upper { padding-top: 9rem; }
+}
+
+.home-ct.compose-bottom {
+  align-items: flex-start;
+  text-align: left;
+  justify-content: flex-end;
+  margin-left: 0;
+  margin-right: auto;
+  max-width: min(40rem, 92vw);
+  padding-bottom: 4.5rem;
+  padding-top: 6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media(min-width:768px) {
+  .home-ct.compose-bottom {
+    padding-left: 2.5rem;
+    padding-bottom: 6rem;
+    max-width: 36rem;
+  }
+}
+@media(min-width:1024px) {
+  .home-ct.compose-bottom {
+    padding-left: 4rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* Mobile: keep readable — left stack, not crushed */
+@media(max-width:640px) {
+  .home-ct.compose-left,
+  .home-ct.compose-bottom,
+  .home-ct.compose-upper {
+    max-width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .home-ct.compose-lower { padding-bottom: 4rem; }
+  .home-ct.compose-bottom { padding-bottom: 3.5rem; }
+}
 
 /* ===== CONTENT CONTAINERS ===== */
 .section { padding: 8rem 1.5rem; position: relative; }
