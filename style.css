@@ -120,11 +120,16 @@ button { font-family: inherit; }
 .ov-home { background: radial-gradient(ellipse 70% 55% at 50% 45%, rgba(5,5,7,.55), rgba(5,5,7,.25) 45%, rgba(5,5,7,.75) 100%); }
 .ov-idea { background: rgba(5,5,7,.7); }
 .ov-systems { background: linear-gradient(to right, rgba(5,5,7,.9), rgba(5,5,7,.5), rgba(5,5,7,.2)); }
-.ov-essence { background: linear-gradient(105deg, rgba(5,5,7,.88) 0%, rgba(5,5,7,.55) 42%, rgba(5,5,7,.2) 70%, rgba(5,5,7,.35) 100%); }
-.ov-revelation { background: linear-gradient(to bottom, rgba(5,5,7,.35) 0%, rgba(5,5,7,.15) 40%, rgba(5,5,7,.82) 100%); }
-.ov-method { background: linear-gradient(to right, rgba(5,5,7,.92) 0%, rgba(5,5,7,.55) 48%, rgba(5,5,7,.2) 100%); }
-.ov-desire { background: linear-gradient(to top, rgba(5,5,7,.92) 0%, rgba(5,5,7,.45) 38%, rgba(5,5,7,.15) 65%, rgba(5,5,7,.35) 100%); }
-.ov-people { background: linear-gradient(to bottom, rgba(5,5,7,.78) 0%, rgba(5,5,7,.35) 45%, rgba(5,5,7,.55) 100%); }
+/* Essence: open red field left, body right — darken left only */
+.ov-essence { background: linear-gradient(90deg, rgba(5,5,7,.9) 0%, rgba(5,5,7,.72) 28%, rgba(5,5,7,.25) 52%, rgba(5,5,7,.08) 100%); }
+/* Revelation: protect face in opening — type lives in lower band */
+.ov-revelation { background: linear-gradient(180deg, rgba(5,5,7,.2) 0%, rgba(5,5,7,.08) 32%, rgba(5,5,7,.55) 58%, rgba(5,5,7,.92) 100%); }
+/* Method: film strip centre-right — type column on left */
+.ov-method { background: linear-gradient(90deg, rgba(5,5,7,.94) 0%, rgba(5,5,7,.78) 34%, rgba(5,5,7,.2) 62%, rgba(5,5,7,.1) 100%); }
+/* Desire: mouth/cherry own the centre — only bottom band for type */
+.ov-desire { background: linear-gradient(180deg, rgba(5,5,7,.12) 0%, rgba(5,5,7,.05) 40%, rgba(5,5,7,.45) 68%, rgba(5,5,7,.93) 100%); }
+/* People: hand/glass lower — type in upper field */
+.ov-people { background: linear-gradient(180deg, rgba(5,5,7,.88) 0%, rgba(5,5,7,.55) 28%, rgba(5,5,7,.18) 55%, rgba(5,5,7,.4) 100%); }
 .ov-collective-h { background: rgba(5,5,7,.5); }
 .ov-belonging-h { background: linear-gradient(to bottom, rgba(5,5,7,.4), rgba(5,5,7,.3), rgba(5,5,7,.7)); }
 .ov-contact-h { background: linear-gradient(to bottom, rgba(5,5,7,.5), rgba(5,5,7,.8)); }
@@ -176,88 +181,161 @@ button { font-family: inherit; }
 .home-ct.w-3xl { max-width: 48rem; }
 @media(min-width:1024px) { .home-ct.w-2xl { padding-left: 2.5rem; padding-right: 2.5rem; } }
 
-/* Composition — type supports image, not fights it */
-.home-ct.compose-left {
-  align-items: flex-start;
+/* =========================================================
+   EDITORIAL TYPE ZONES — type supports the image subject
+   ========================================================= */
+.home-ct.type-zone {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  inset: 0;
   text-align: left;
-  margin-left: 0;
-  margin-right: auto;
-  max-width: min(42rem, 92vw);
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  align-items: stretch;
+}
+
+.type-panel {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+/* --- ESSENCE: left column in open red; body owns the right --- */
+.type-essence {
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 6rem 1.25rem 4rem;
+}
+.type-essence .type-panel {
+  width: min(100%, 22rem);
+  padding: 1.75rem 1.35rem;
+  background: linear-gradient(135deg, rgba(5,5,7,.55), rgba(5,5,7,.25));
+  border-left: 1px solid rgba(255,255,255,.06);
 }
 @media(min-width:768px) {
-  .home-ct.compose-left {
-    padding-left: 2.5rem;
-    padding-right: 2rem;
+  .type-essence {
+    padding: 7rem 0 5rem 3rem;
+    justify-content: center;
+  }
+  .type-essence .type-panel {
+    width: min(100%, 26rem);
+    padding: 2.25rem 2rem;
+    background: transparent;
+    border-left: none;
+  }
+}
+@media(min-width:1100px) {
+  .type-essence { padding-left: 5rem; }
+  .type-essence .type-panel { width: 28rem; }
+}
+
+/* --- REVELATION: full lower band under the face opening --- */
+.type-revelation {
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: 0;
+}
+.type-revelation .type-panel {
+  width: 100%;
+  max-width: none;
+  padding: 2.5rem 1.35rem 3.5rem;
+  background: linear-gradient(180deg, transparent, rgba(5,5,7,.35) 20%, rgba(5,5,7,.15));
+}
+@media(min-width:768px) {
+  .type-revelation .type-panel {
+    padding: 3rem 3rem 4.5rem;
+    max-width: 40rem;
+  }
+}
+@media(min-width:1024px) {
+  .type-revelation .type-panel {
+    padding: 3.5rem 4.5rem 5rem;
+    max-width: 44rem;
+  }
+}
+
+/* --- METHOD: tight left rail — film strip keeps the stage --- */
+.type-method {
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem 1.25rem;
+}
+.type-method .type-panel {
+  width: min(100%, 22rem);
+}
+@media(min-width:768px) {
+  .type-method {
+    padding: 0 0 0 3rem;
+    justify-content: center;
+  }
+  .type-method .type-panel { width: 26rem; }
+}
+@media(min-width:1100px) {
+  .type-method { padding-left: 5rem; }
+  .type-method .type-panel { width: 28rem; }
+}
+
+/* --- DESIRE: bottom strip only — cherry/mouth own 70% of frame --- */
+.type-desire {
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0;
+}
+.type-desire .type-panel {
+  width: 100%;
+  max-width: 36rem;
+  padding: 2rem 1.35rem 3rem;
+}
+@media(min-width:768px) {
+  .type-desire .type-panel {
+    padding: 2.5rem 3rem 4rem;
+    max-width: 34rem;
+  }
+}
+@media(min-width:1024px) {
+  .type-desire .type-panel {
+    padding: 2.75rem 4.5rem 5rem;
     max-width: 38rem;
   }
-}
-@media(min-width:1024px) {
-  .home-ct.compose-left {
-    padding-left: 4rem;
-    max-width: 36rem;
-  }
+  .type-desire .h2 { font-size: 2.75rem; }
 }
 
-.home-ct.compose-lower {
-  justify-content: flex-end;
-  padding-bottom: 5rem;
-  padding-top: 6rem;
-}
-@media(min-width:768px) {
-  .home-ct.compose-lower { padding-bottom: 6.5rem; }
-}
-@media(min-width:1024px) {
-  .home-ct.compose-lower { padding-bottom: 7.5rem; }
-}
-
-.home-ct.compose-upper {
+/* --- PEOPLE: upper-left plate; curtain + hand keep the lower half --- */
+.type-people {
   justify-content: flex-start;
-  padding-top: 7.5rem;
-  padding-bottom: 4rem;
-}
-@media(min-width:768px) {
-  .home-ct.compose-upper { padding-top: 9rem; }
-}
-
-.home-ct.compose-bottom {
   align-items: flex-start;
-  text-align: left;
-  justify-content: flex-end;
-  margin-left: 0;
-  margin-right: auto;
-  max-width: min(40rem, 92vw);
-  padding-bottom: 4.5rem;
-  padding-top: 6rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 6.5rem 1.25rem 4rem;
+}
+.type-people .type-panel {
+  width: min(100%, 24rem);
 }
 @media(min-width:768px) {
-  .home-ct.compose-bottom {
-    padding-left: 2.5rem;
-    padding-bottom: 6rem;
-    max-width: 36rem;
+  .type-people {
+    padding: 8rem 0 4rem 3rem;
   }
+  .type-people .type-panel { width: 28rem; }
 }
-@media(min-width:1024px) {
-  .home-ct.compose-bottom {
-    padding-left: 4rem;
-    padding-bottom: 7rem;
-  }
+@media(min-width:1100px) {
+  .type-people { padding: 9rem 0 4rem 5rem; }
+  .type-people .type-panel { width: 30rem; }
 }
 
-/* Mobile: keep readable — left stack, not crushed */
+/* Mobile: readable panels, still not centre-fighting subjects */
 @media(max-width:640px) {
-  .home-ct.compose-left,
-  .home-ct.compose-bottom,
-  .home-ct.compose-upper {
-    max-width: 100%;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+  .type-essence .type-panel,
+  .type-method .type-panel,
+  .type-people .type-panel {
+    width: 100%;
   }
-  .home-ct.compose-lower { padding-bottom: 4rem; }
-  .home-ct.compose-bottom { padding-bottom: 3.5rem; }
+  .type-essence { padding: 5.5rem 1rem 3.5rem; }
+  .type-method { padding: 5.5rem 1rem; }
+  .type-people { padding: 5.5rem 1rem 3rem; }
+  .type-desire .type-panel,
+  .type-revelation .type-panel {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
 }
 
 /* ===== CONTENT CONTAINERS ===== */
