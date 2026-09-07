@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Oswald:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Oswald:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
   --bg: hsl(250, 15%, 4%);
@@ -20,7 +20,7 @@
   --tq-80: rgba(139, 16, 24, 0.85);
   --dark: #050507;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ff-h: 'Bodoni Moda', serif;
+  --ff-h: 'Special Elite', Courier, monospace;
   --ff-b: 'Newsreader', serif;
   --ff-id: 'Oswald', sans-serif;
   --ff-l: 'Inter', sans-serif;
