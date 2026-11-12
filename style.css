@@ -747,3 +747,54 @@ ul {
     height: 52px;
   }
 }
+
+
+/* —— Core Web Vitals —— */
+img {
+  height: auto;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Reserve space / avoid CLS */
+  aspect-ratio: 16 / 9;
+}
+
+.case-frame {
+  aspect-ratio: 16 / 9;
+  content-visibility: auto;
+  contain-intrinsic-size: 1200px 675px;
+}
+
+.founder-visual img {
+  aspect-ratio: 4 / 5;
+}
+
+/* Below-fold sections: skip render work until near viewport */
+.work,
+.offers,
+.founder,
+.contact {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
+/* Don’t animate layout — transform/opacity only (already) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

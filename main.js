@@ -3,10 +3,16 @@
   const nav = document.getElementById("nav");
   const toggle = document.getElementById("navToggle");
 
-  // Header scroll state
+  // Header scroll — rAF to limit main-thread work (INP)
+  let scrollTicking = false;
   const onScroll = () => {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 40);
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+      header.classList.toggle("is-scrolled", window.scrollY > 40);
+      scrollTicking = false;
+    });
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
